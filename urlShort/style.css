@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px 16px;
+  color: #1f2937;
+  font-family: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", Arial, sans-serif;
+  background-color: #fffaf0;
+  /* 메인 화면, URL2QR과 같은 밝은 그라데이션 */
+  background-image:
+    radial-gradient(circle at 25% 20%, rgba(255, 193, 7, 0.35), transparent 45%),
+    radial-gradient(circle at 80% 85%, rgba(125, 211, 252, 0.45), transparent 50%),
+    linear-gradient(135deg, #fff8e1 0%, #fdf2f8 50%, #e0f2fe 100%);
+}
+
+.card {
+  width: min(480px, 100%);
+  padding: 32px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 20px 40px rgba(31, 41, 55, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.back-link {
+  display: inline-block;
+  color: #4b5563;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #111111;
+  text-decoration: underline;
+}
+
+.title {
+  margin-top: 16px;
+  font-size: 26px;
+}
+
+.subtitle {
+  margin-top: 6px;
+  color: #4b5563;
+  font-size: 15px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.first-row {
+  margin-top: 24px;
+}
+
+.field {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  background: #ffffff;
+  color: #1f2937;
+  font: inherit;
+  font-size: 16px;
+}
+
+.field::placeholder {
+  color: #6b7280;
+}
+
+.field:focus {
+  border-color: #b45309;
+  outline: none;
+  box-shadow: 0 0 0 1px #b45309;
+}
+
+.result {
+  background: #f9fafb;
+}
+
+.button {
+  flex-shrink: 0;
+  padding: 0 18px;
+  border: none;
+  border-radius: 12px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.button.primary {
+  background: #ffc107; /* URL2QR 로고의 노란색 */
+  color: #111111;
+}
+
+.button.primary:hover:not(:disabled) {
+  background: #ffb300;
+}
+
+.button.dark {
+  background: #1f2937;
+  color: #ffffff;
+}
+
+.button.dark:hover:not(:disabled) {
+  background: #111827;
+}
+
+.button:disabled {
+  background: #e5e7eb;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.back-link:focus-visible,
+.button:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 2px;
+}
+
+.message {
+  min-height: 1.5em;
+  margin-top: 12px;
+  color: #991b1b;
+  font-size: 14px;
+  word-break: keep-all;
+}
+
+.hint {
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+/* '복사하였습니다' 알림: 화면 아래 가운데에 잠깐 나타남 */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: #111827;
+  color: #ffffff;
+  font-size: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 10px);
+  transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 400px) {
+  .card {
+    padding: 28px 18px;
+  }
+
+  .button {
+    padding: 0 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .toast {
+    transition: none;
+  }
+}

@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 24px 16px;
+  color: #1f2937;
+  font-family: "Malgun Gothic", "맑은 고딕", "Apple SD Gothic Neo", Arial, sans-serif;
+  background-color: #fffaf0;
+  /* URL2QR과 같은 밝은 그라데이션 */
+  background-image:
+    radial-gradient(circle at 25% 20%, rgba(255, 193, 7, 0.35), transparent 45%),
+    radial-gradient(circle at 80% 85%, rgba(125, 211, 252, 0.45), transparent 50%),
+    linear-gradient(135deg, #fff8e1 0%, #fdf2f8 50%, #e0f2fe 100%);
+}
+
+.card {
+  width: min(420px, 100%);
+  padding: 40px 32px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 20px 40px rgba(31, 41, 55, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  text-align: center;
+}
+
+.brand {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #ffc107; /* URL2QR 로고의 노란색 */
+  color: #111111;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.title {
+  margin-top: 14px;
+  font-size: 28px;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: #4b5563;
+  font-size: 15px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.menu-button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.menu-button:hover {
+  box-shadow: 0 8px 20px rgba(31, 41, 55, 0.18);
+  transform: translateY(-2px);
+}
+
+.menu-button:focus-visible {
+  outline: 3px solid #111111;
+  outline-offset: 3px;
+}
+
+.menu-button.qr {
+  background: #ffc107;
+  color: #111111;
+}
+
+.menu-button.short {
+  background: #1f2937;
+  color: #ffffff;
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+}
+
+.text strong {
+  display: block;
+  font-size: 18px;
+}
+
+.text small {
+  display: block;
+  margin-top: 2px;
+  font-size: 13px;
+}
+
+@media (max-width: 400px) {
+  .card {
+    padding: 32px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-button {
+    transition: none;
+  }
+}

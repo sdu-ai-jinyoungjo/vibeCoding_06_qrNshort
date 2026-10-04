@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL 단축기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <a class="back-link" href="../index.html">← 뒤로가기</a>
+    <h1 class="title">URL 단축기</h1>
+    <p class="subtitle">긴 URL을 짧고 간편하게 만드세요</p>
+
+    <!-- URL 입력창 + [단축하기] -->
+    <form class="row first-row" id="shorten-form" novalidate>
+      <label class="visually-hidden" for="url-input">단축할 URL</label>
+      <input class="field" id="url-input" type="url" placeholder="URL을 입력하세요"
+             autocomplete="url" autocapitalize="off" spellcheck="false" autofocus>
+      <button class="button primary" id="shorten-button" type="submit" disabled>단축하기</button>
+    </form>
+
+    <!-- 읽기 전용 출력 상자 + [복사] -->
+    <div class="row">
+      <label class="visually-hidden" for="result">단축된 URL</label>
+      <input class="field result" id="result" type="text" placeholder="단축된 URL이 여기에 표시됩니다" readonly>
+      <button class="button dark" id="copy-button" type="button" disabled>복사</button>
+    </div>
+
+    <p class="message" id="message" role="alert"></p>
+    <p class="hint">단축 서비스: da.gd (응답이 없으면 spoo.me)</p>
+  </main>
+
+  <!-- '복사하였습니다' 알림 -->
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
